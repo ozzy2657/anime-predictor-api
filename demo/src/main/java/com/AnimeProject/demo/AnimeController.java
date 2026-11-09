@@ -1,4 +1,5 @@
 package com.AnimeProject.demo;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -81,4 +82,3 @@ public class AnimeController {
         return ResponseEntity.ok(Collections.singletonMap("predictedRating", result));
     }
 }
-

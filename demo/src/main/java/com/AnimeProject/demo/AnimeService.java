@@ -32,9 +32,8 @@ public class AnimeService {
         // Default for other types: 0
     }
     
-    // Episode and members coefficients
+    // Episode coefficient
     private static final double EPISODES_COEFF = 0.0004963;
-    private static final double MEMBERS_COEFF = 0.000004533;
     
     // Genre coefficients
     private static final Map<String, Double> GENRE_COEFFICIENTS = new HashMap<>();
@@ -128,7 +127,7 @@ public class AnimeService {
 
     // Prediction method using R regression model: given `episodes`, `members`, `genre`, and `type`, 
     // return a predicted rating based on statistical coefficients from linear regression analysis.
-    // Formula: rating = intercept + type_coeff + genre_coeff + (episodes * episodes_coeff) + (members * members_coeff)
+    // Formula: rating = intercept + type_coeff + genre_coeff + (episodes * episodes_coeff) + log1p(members) * 0.18
     public double predictRating(int episodes, int members, String genre, String type) {
         System.out.println("DEBUG: episodes=" + episodes + " members=" + members + " genre=" + genre + " type=" + type);
 
